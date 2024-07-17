@@ -47,9 +47,11 @@ public class LinijaController {
             @RequestParam(required=false) String destinacija,
             @RequestParam(required=false) Long prevoznikId,
             @RequestParam(required=false) Double maxCena,
+            @RequestParam(required = false) Boolean top3Mesta,
+            @RequestParam(required = false, defaultValue = "0") Integer brojMesta, 
             @RequestParam(value = "pageNo", defaultValue = "0") int pageNo){
 
-        Page<Linija> page = linijaService.find(destinacija, prevoznikId, maxCena, pageNo);
+        Page<Linija> page = linijaService.find(destinacija, prevoznikId, maxCena, top3Mesta,  brojMesta,  pageNo);
 
         HttpHeaders headers = new HttpHeaders();
         headers.add("Total-Pages", Integer.toString(page.getTotalPages()));

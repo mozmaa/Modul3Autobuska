@@ -40,4 +40,9 @@ public class JpaRezervacijaService implements RezervacijaService {
 		return rezervacijaRepository.findOneById(id);
 	}
 
+	@Override
+	public List<Rezervacija> findAllByLinijaId(Long id) {
+		return rezervacijaRepository.findAllByLinijaId(id);
+	}
+
 }

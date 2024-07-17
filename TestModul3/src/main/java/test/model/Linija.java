@@ -28,7 +28,7 @@ public class Linija {
 	@ManyToOne
 	Prevoznik prevoznik;
 	
-	@OneToMany(mappedBy = "linija" , fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "linija" , fetch = FetchType.EAGER)
 	private List<Rezervacija> rezervacije = new ArrayList<>();
 
 	public Linija() {

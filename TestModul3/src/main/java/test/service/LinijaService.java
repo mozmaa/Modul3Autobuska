@@ -10,7 +10,7 @@ public interface LinijaService {
 
 	List<Linija> find(List<Long> ids);
 
-	Page<Linija> find(String destinacija, Long prevoznikId, Double maxCena, int pageNo);
+	Page<Linija> find(String destinacija, Long prevoznikId, Double maxCena, Boolean top3Mesta, int brojMesta, int pageNo);
 
 	Linija findOneById(Long id);
 

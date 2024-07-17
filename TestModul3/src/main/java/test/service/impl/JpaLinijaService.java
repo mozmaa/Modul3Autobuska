@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 
@@ -25,7 +26,11 @@ public class JpaLinijaService implements LinijaService {
 	}
 
 	@Override
-	public Page<Linija> find(String destinacija, Long prevoznikId, Double maxCena, int pageNo) {
+	public Page<Linija> find(String destinacija, Long prevoznikId, Double maxCena, Boolean top3Mesta, int brojMesta, int pageNo) {
+				
+		if(top3Mesta != null) {
+			return linijaRepository.findByBrojMestaGreaterThan(brojMesta, PageRequest.of(0, 3, Sort.by("brojMesta").descending()));
+		}
 		
 		if(maxCena == null)
 			maxCena = Double.MAX_VALUE;

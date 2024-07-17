@@ -68,6 +68,10 @@ export const Linije = (props) => {
         navigate('/linije/dodavanje')
     }
 
+    const goToTop3Mesta = () => {
+        navigate('/linije/topMesta')
+    }
+
     return (
         <Col>
             <Row><h1>Linije</h1></Row>
@@ -100,6 +104,8 @@ export const Linije = (props) => {
             </Col></Row>
             <Stack direction="horizontal" gap={3}>
                 {props.loginInfo?.isAdmin ? <Button className="button button-navy" onClick={() => goToAdd()}>Add</Button> : <></>}
+                <Button onClick={() => goToTop3Mesta()}>Top 3 slobodna mesta</Button>
+                <Button>Top 3 cene</Button>
                 <Button className="ms-auto" disabled={pageNo === 0} onClick={() => getLinije(pageNo - 1)}>Prev</Button>
                 {linije.length === 0 ? pageNo : pageNo + 1}/{pageCount}
                 <Button disabled={pageNo === pageCount - 1} onClick={() => getLinije(pageNo + 1)}>Next</Button>

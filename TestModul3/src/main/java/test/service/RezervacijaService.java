@@ -12,4 +12,6 @@ public interface RezervacijaService {
 
 	Rezervacija findOneById(Long id);
 
+	List<Rezervacija> findAllByLinijaId(Long id);
+
 }

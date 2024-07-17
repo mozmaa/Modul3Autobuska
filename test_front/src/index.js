@@ -10,6 +10,7 @@ import { jwtDecode } from 'jwt-decode'
 import { Linije } from './components/linije/Linije'
 import { AddLinija } from './components/linije/AddLinija'
 import { EditLinija } from './components/linije/EditLinija'
+import { TopMesta } from './components/linije/TopMesta'
 
 
 
@@ -44,6 +45,7 @@ const App = () => {
                             <Route path='/' element={<Home />} />
                             <Route path='/linije' element={<Linije callback={(linija) => setSelectedLinija(linija)} loginInfo={loginInfo} />} />
                             <Route path='/linije/dodavanje' element={<AddLinija />} />
+                            <Route path='/linije/topMesta' element={<TopMesta />} />
                             <Route path='/linija/edit' element={<EditLinija selectedLinija={selectedLinija} />} />
                             <Route path="*" element={<NotFound />} />
                         </Routes>
@@ -70,6 +72,7 @@ const App = () => {
                         <Routes>
                             <Route path='/' element={<Home />} />
                             <Route path='/linije' element={<Linije />} />
+                            <Route path='/linije/topMesta' element={<TopMesta />} />
                             <Route path='/login' element={<Login />} />
                             <Route path="*" element={<Navigate replace to="/login" />} />
                         </Routes>

@@ -27,4 +27,6 @@ public interface LinijaRepository extends JpaRepository<Linija, Long> {
 
 	Linija findOneById(Long id);
 
+	Page<Linija> findByBrojMestaGreaterThan(Integer brojMesta, Pageable pageable);
+
 }
